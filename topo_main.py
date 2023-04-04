@@ -9,8 +9,17 @@ st.set_page_config(page_title="Extracción de noticias", page_icon=":newspaper:"
 # Lista de dominios permitidos
 allowed_domains = ['levelup.com', 'tarreo.com', 'tomatazos.com', 'qore.com', 'sandiegored.com']
 
-# Set up authentication environment variable for Google Cloud Text-to-Speech
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "daring-harmony-379101-6a518e6f8c41.json"
+# Campo de entrada para ingresar las credenciales de autenticación de Google Cloud Text-to-Speech en formato JSON
+credenciales_texto = st.text_area("Ingresa tus credenciales de autenticación de Google Cloud Text-to-Speech en formato JSON")
+
+# Si se ha ingresado un valor en el campo de texto, establece las credenciales de autenticación
+if credenciales_texto:
+    # Escribir las credenciales en un archivo temporal
+    with open("credenciales.json", "w") as file:
+        file.write(credenciales_texto)
+
+    # Establecer las credenciales de autenticación de Google Cloud Text-to-Speech
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "credenciales.json"
 
 # Función para convertir el contenido extraído de la URL a un archivo de audio
 def synthesize_text_to_audio(text_to_synthesize):
@@ -62,17 +71,15 @@ if url and any(domain in url for domain in allowed_domains):
         titulo_noticia = soup.find('h1', {'itemprop': 'name headline'}).get_text()
 
         # Seleccionar el elemento con la clase "content" y el identificador "content"
-        content = soup.find('div', {'class': 'content', 'id': 'content'})
+        content =
+    content = soup.find('div', {'class': 'content', 'id': 'content'})
 
-        # Extraer el contenido de los elementos <p> que no contienen texto no deseado
-        contenido_noticia = ""
-        for p in content.find_all('p'):
-            text = p.get_text().lower()
-            if "video relacionado" not in text and "fuente" not in text and "por si te lo perdiste" not in text and "da clic aquí para leer más noticias relacionadas con" not in text and "editorial:" not in text and "entérate:" not in
-    # Puedes modificar o agregar más condiciones para filtrar el texto no deseado
-    # y asegurarte de que solo se incluya el contenido de la noticia
-
-        contenido_noticia += p.get_text() + "\n\n"
+    # Extraer el contenido de los elementos <p> que no contienen texto no deseado
+    contenido_noticia = ""
+    for p in content.find_all('p'):
+        text = p.get_text().lower()
+        if "video relacionado" not in text and "fuente" not in text and "por si te lo perdiste" not in text and "da clic aquí para leer más noticias relacionadas con" not in text and "editorial:" not in text and "entérate:" not in text and "puedes visitar este enlace para conocer todas las noticias relacionadas con" not in text and "busca en este enlace todas las noticias relacionadas con" not in text:
+            contenido_noticia += p.get_text() + "\n\n"
 
     # Mostrar el título de la noticia y el contenido extraído
     st.header(titulo_noticia)
