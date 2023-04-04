@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import streamlit as st
 
 # Lista de dominios permitidos
-allowed_domains = ['levelup.com', 'tarreo.com', 'tomatazos.com', 'qore.com', 'sandiegored.com']
+allowed_domains = ['example.com', 'bbc.com', 'nytimes.com']
 
 # Configurar la página de Streamlit
 st.set_page_config(page_title="Extracción de noticias", page_icon=":newspaper:")
@@ -14,8 +14,8 @@ st.title("Extracción de noticias")
 # Campo de entrada para ingresar la URL del sitio web
 url = st.text_input("Ingresa la URL del sitio web")
 
-# Verificar si la URL pertenece a la lista de dominios permitidos
-if any(domain in url for domain in allowed_domains):
+# Verificar si se ha ingresado una URL y si la URL pertenece a la lista de dominios permitidos
+if url and any(domain in url for domain in allowed_domains):
     # Botón para iniciar la extracción de noticias
     if st.button("Extraer noticias"):
 
@@ -41,6 +41,6 @@ if any(domain in url for domain in allowed_domains):
         # Mostrar el título de la noticia y el contenido extraído
         st.header(titulo_noticia)
         st.write(contenido_noticia)
-else:
+elif url:
     # Mostrar mensaje de error si la URL no pertenece a la lista de dominios permitidos
     st.error("La URL ingresada no pertenece a los dominios permitidos.")
