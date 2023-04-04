@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import streamlit as st
 
 # Lista de dominios permitidos
-allowed_domains = ['example.com', 'bbc.com', 'nytimes.com']
+allowed_domains = ['levelup.com', 'tarreo.com', 'tomatazos.com', 'qore.com', 'sandiegored.com']
 
 # Configurar la página de Streamlit
 st.set_page_config(page_title="Extracción de noticias", page_icon=":newspaper:")
