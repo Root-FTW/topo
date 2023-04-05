@@ -39,13 +39,16 @@ if url and any(domain in url for domain in allowed_domains):
             if "video relacionado" not in text and "fuente" not in text and "por si te lo perdiste" not in text and "da clic aquí para leer más noticias relacionadas con" not in text and "editorial:" not in text and "entérate:" not in text and "puedes visitar este enlace para conocer todas las noticias relacionadas con" not in text and "busca en este enlace todas las noticias relacionadas con" not in text:
                 contenido_noticia += p.get_text() + "\n\n"
 
+        # Combinar el título de la noticia con el contenido de la noticia
+        texto_completo = titulo_noticia + "\n\n" + contenido_noticia
+
         # Mostrar el título de la noticia y el contenido extraído
         st.header(titulo_noticia)
         st.write(contenido_noticia)
 
-        # Convertir el contenido extraído a habla y guardar el archivo de sonido en un objeto de flujo de bytes
+        # Convertir el contenido completo a habla y guardar el archivo de sonido en un objeto de flujo de bytes
         sound_file = BytesIO()
-        tts = gTTS(contenido_noticia, lang='es', tld='com.mx')
+        tts = gTTS(texto_completo, lang='es', tld='com.mx')
         tts.write_to_fp(sound_file)
 
         # Reproducir el archivo de sonido en la aplicación web
