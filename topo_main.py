@@ -45,7 +45,7 @@ if url and any(domain in url for domain in allowed_domains):
 
         # Convertir el contenido extraído a habla y guardar el archivo de sonido en un objeto de flujo de bytes
         sound_file = BytesIO()
-        tts = gTTS(contenido_noticia, lang='es')
+        tts = gTTS(contenido_noticia, lang='es', tld='com.mx')
         tts.write_to_fp(sound_file)
 
         # Reproducir el archivo de sonido en la aplicación web
