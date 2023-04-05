@@ -6,7 +6,7 @@ Este proyecto utiliza Python, Streamlit, BeautifulSoup y gTTS para extraer conte
 - [Características](#características)
 - [Requisitos previos](#requisitos-previos)
 - [Instalación](#instalación)
-- [Uso](#Desplegando-tu-Aplicación-en-Streamlit-Sharing)
+- [Desplegar en Streamlit](#Desplegando-tu-Aplicación-en-Streamlit-Sharing)
 - [Uso](#uso)
 - [Dominios permitidos](#dominios-permitidos)
 - [Contribución](#contribución)
