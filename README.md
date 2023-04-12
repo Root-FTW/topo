@@ -2,6 +2,8 @@
 
 [English](./README_EN.md) | [Español](./README.md)
 
+[URL Input Demo:](https://www.levelup.com/noticias/731627/Shrek-5-esta-muy-cerca-de-ser-una-realidad-actores-originales-podrian-regresar)
+
 Este proyecto utiliza Python, Streamlit, BeautifulSoup y gTTS para extraer contenido de noticias de sitios web específicos y convertirlo en audio. La aplicación web creada con Streamlit permite a los usuarios ingresar una URL de un sitio web soportado y, luego, realiza la extracción del título y el contenido de la noticia. Por último, la información extraída se convierte en audio utilizando gTTS (Google Text-to-Speech) y se reproduce en la página.
 
 ## Tabla de contenidos
