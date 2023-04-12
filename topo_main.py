@@ -47,21 +47,19 @@ if url and any(domain in url for domain in allowed_domains):
         st.header(titulo_noticia)
         st.write(contenido_noticia)
 
-        # Crear un objeto de texto vacío
-        audio_placeholder = st.empty()
-
         # Convertir el contenido completo a habla y guardar el archivo de sonido en un objeto de flujo de bytes
         sound_file = BytesIO()
         tts = gTTS(texto_completo, lang='es', tld='com.mx')
-
+        
         # Mostrar un mensaje mientras se genera el archivo de audio
         with st.spinner('Generando archivo de audio...'):
-            # Generar el archivo de audio en segundo plano
-            tts.write_to_fp(sound_file)
-            # Esperar hasta que se actualice el objeto de texto con el reproductor de audio
-            while not audio_placeholder.audio(sound_file.getvalue(), format='audio/mp3'):
-                time.sleep(1)
+            time.sleep(3) # agregar una pequeña demora para simular la generación del archivo de audio
+            
+        tts.write_to_fp(sound_file)
+
+        # Reproducir el archivo de sonido en la aplicación web
+        st.audio(sound_file.getvalue(), format='audio/mp3')
         
 elif url:
-# Mostrar mensaje de error si la URL no pertenece a la lista de dominios permitidos
-st.error("La URL ingresada no pertenece a los dominios permitidos.")
+    # Mostrar mensaje de error si la URL no pertenece a la lista de dominios permitidos
+    st.error("La URL ingresada no pertenece a los dominios permitidos.")
