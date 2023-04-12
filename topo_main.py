@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from gtts import gTTS
 from io import BytesIO
 import streamlit as st
+import time
 
 # Lista de dominios permitidos
 allowed_domains = ['levelup.com', 'tarreo.com', 'tomatazos.com', 'qore.com', 'sandiegored.com']
@@ -49,10 +50,16 @@ if url and any(domain in url for domain in allowed_domains):
         # Convertir el contenido completo a habla y guardar el archivo de sonido en un objeto de flujo de bytes
         sound_file = BytesIO()
         tts = gTTS(texto_completo, lang='es', tld='com.mx')
+        
+        # Mostrar un mensaje mientras se genera el archivo de audio
+        with st.spinner('Generando archivo de audio...'):
+            time.sleep(3) # agregar una pequeña demora para simular la generación del archivo de audio
+            
         tts.write_to_fp(sound_file)
 
         # Reproducir el archivo de sonido en la aplicación web
         st.audio(sound_file.getvalue(), format='audio/mp3')
+        
 elif url:
     # Mostrar mensaje de error si la URL no pertenece a la lista de dominios permitidos
     st.error("La URL ingresada no pertenece a los dominios permitidos.")
