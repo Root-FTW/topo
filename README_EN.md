@@ -1,5 +1,7 @@
 # News Extraction and Audio Conversion
 
+[English](./README_EN.md) | [Español](./README.md)
+
 This project uses Python, Streamlit, BeautifulSoup, and gTTS to extract news content from specific websites and convert it into audio. The web app created with Streamlit allows users to enter a URL from a supported website, then extracts the news title and content. Finally, the extracted information is converted into audio using gTTS (Google Text-to-Speech) and played on the page.
 
 ## Table of Contents
