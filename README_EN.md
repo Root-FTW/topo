@@ -1,22 +1,24 @@
-# News extraction and conversion to audio
+# News Extraction and Audio Conversion
 
-This project uses Python, Streamlit, BeautifulSoup and gTTS to extract news content from specific websites and convert it to audio. The web application created with Streamlit allows users to enter a URL of a supported website and then performs the extraction of the news title and content. Finally, the extracted information is converted to audio using gTTS (Google Text-to-Speech) and played on the page.
+[English](./README_EN.md) | [Español](./README.md)
 
-## Table of contents
+This project uses Python, Streamlit, BeautifulSoup, and gTTS to extract news content from specific websites and convert it into audio. The web app created with Streamlit allows users to enter a URL from a supported website, then extracts the news title and content. Finally, the extracted information is converted into audio using gTTS (Google Text-to-Speech) and played on the page.
+
+## Table of Contents
 - [Features](#features)
-- [Prerequisites](#pre-requisites)
+- [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Deploying in Streamlit](#deploying-your-Application-in-Streamlit-Sharing)
+- [Deploying on Streamlit](#deploying-your-app-on-streamlit-sharing)
 - [Usage](#usage)
-- [Allowed domains](#allowed-domains)
+- [Allowed Domains](#allowed-domains)
 - [Contribution](#contribution)
 - [License](#license)
 
 ## Features
 - Extracts news content from selected sites.
 - Filters out unwanted or irrelevant text before converting the content.
-- Converts extracted text to audio using Google Text-to-Speech (gTTS).
-- Plays the resulting audio on the web application page.
+- Converts the extracted text into audio using Google Text-to-Speech (gTTS).
+- Plays the resulting audio on the web app's page.
 - Checks if the entered URL belongs to the allowed domains.
 
 ## Prerequisites
@@ -26,36 +28,36 @@ This project uses Python, Streamlit, BeautifulSoup and gTTS to extract news cont
 ## Installation
 1. Clone this repository:
 ```bash
-git clone https://github.com/your_username/Extraccion_y_conversion_de_noticias_a_audio.git
+git clone https://github.com/Root-FTW/News_Extraction_and_Audio_Conversion.git
 ```
 
 2. Change to the project directory:
 ```bash
-cd Extraction_and_conversion_of_news_to_audio
+cd News_Extraction_and_Audio_Conversion
 ```
 
-3. Install the necessary dependencies:
+3. Install the required dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
 ## Deploying your Application on Streamlit Sharing
 
-[Streamlit Sharing](https://www.streamlit.io/sharing) is a free and easy to use service that allows you to deploy your Streamlit developed applications on the web.
+[Streamlit Sharing](https://www.streamlit.io/sharing) is a free and easy-to-use service that allows you to deploy your Streamlit-developed applications on the web.
 
 ### Steps to deploy your application on Streamlit Sharing:
 
 1. **Upload your project to GitHub**: Make sure your project is in a public GitHub repository. This platform will pull your code directly from the repository to run the application.
 
-2. **Sign up for Streamlit Sharing**: Go to [streamlit.io/sharing](https://www.streamlit.io/sharing) and create an account or log in with your GitHub credentials.
+2. **Sign up for Streamlit Sharing**: Go to [streamlit.io/sharing](https://www.streamlit.io/sharing) and create an account or sign in with your GitHub credentials.
 
-3. **Request an invitation (if you haven't already)**: If this is your first time using Streamlit Sharing, request an invitation. Once you receive it, you will be able to access the control panel.
+3. **Request an invitation (if you haven't already)**: If it's your first time using Streamlit Sharing, request an invitation. Once received, you'll gain access to the dashboard.
 
-4. **Go to the control panel**: Log in to Streamlit Sharing and go to the control panel by clicking on the "Go to sharing" button.
+4. **Go to the dashboard**: Sign in to Streamlit Sharing and head to the dashboard by clicking on the "Go to sharing" button.
 
-5. **Deploy your application**: Click on the "New app" button at the top right of the control panel. Select the repository containing your application, then select the corresponding branch and specify the file containing the Streamlit application (e.g. `app.py`).
+5. **Deploy your application**: Click on the "New app" button in the top right corner of the dashboard. Select the repository containing your application, then choose the corresponding branch and specify the file containing the Streamlit application (for example, `app.py`).
 
-6. **Click "Deploy "**: Once you have completed the necessary information, click the "Deploy" button to launch your application. Streamlit Sharing will create a virtual environment and deploy your application in a container. This process may take a few minutes.
+6. **Click on "Deploy"**: Once you have filled in the necessary information, click the "Deploy" button to launch your application. Streamlit Sharing will create a virtual environment and deploy your application in a container. This process may take a few minutes.
 
 ## Usage
 Run the Streamlit application in your local environment:
