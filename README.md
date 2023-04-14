@@ -30,7 +30,7 @@ Este proyecto utiliza Python, Streamlit, BeautifulSoup y gTTS para extraer conte
 ## Instalación
 1. Clone este repositorio:
 ```bash
-git clone https://github.com/your_username/Extraccion_y_conversion_de_noticias_a_audio.git
+git clone https://github.com/Root-FTW/Extraccion_y_conversion_de_noticias_a_audio.git
 ```
 
 2. Cambie al directorio del proyecto:

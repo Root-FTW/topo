@@ -28,7 +28,7 @@ This project uses Python, Streamlit, BeautifulSoup, and gTTS to extract news con
 ## Installation
 1. Clone this repository:
 ```bash
-git clone https://github.com/your_username/News_Extraction_and_Audio_Conversion.git
+git clone https://github.com/Root-FTW/News_Extraction_and_Audio_Conversion.git
 ```
 
 2. Change to the project directory:
