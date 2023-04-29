@@ -1,5 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
+from gtts import gTTS
+from io import BytesIO
 import streamlit as st
 
 # Lista de dominios permitidos
@@ -59,41 +61,13 @@ if url and any(domain in url for domain in allowed_domains):
 
         # Convertir el contenido completo a habla y guardar el archivo de sonido en un objeto de flujo de bytes
         # Convert the entire content to speech and save the sound file as a byte stream object
-        import sys
+        sound_file = BytesIO()
+        tts = gTTS(texto_completo, lang='es', tld='com.mx')
+        tts.write_to_fp(sound_file)
 
-        from boto3 import Session
-        from botocore.exceptions import BotoCoreError, ClientError, ProfileNotFound
-        try:
-            session = Session(profile_name="polly")
-            polly = session.client("polly")
-            voice = "Miguel"
-            try:
-                response = polly.synthesize_speech(
-                    Text=texto_completo, OutputFormat="mp3", VoiceId=voice, Engine="neural"
-                )
-            except (BotoCoreError, ClientError) as error:
-                # The service returned an error, exit gracefully
-                print(error)
-                sys.exit(-1)
-
-            # Access the audio stream from the response
-            if "AudioStream" in response:
-                st.audio(response["AudioStream"], format='audio/mp3')
-
-            else:
-                # The response didn't contain audio data, exit gracefully
-                print("Could not stream audio")
-                sys.exit(-1)
-        except ProfileNotFound:
-            print("You need to install the AWS CLI and configure your profile")
-            print(
-                """
-            Linux: https://docs.aws.amazon.com/polly/latest/dg/setup-aws-cli.html
-            Windows: https://docs.aws.amazon.com/polly/latest/dg/install-voice-plugin2.html
-            """
-            )
-            sys.exit(-1)
-
+        # Reproducir el archivo de sonido en la aplicación web
+        # Playing the sound file in the web application
+        st.audio(sound_file.getvalue(), format='audio/mp3')
 elif url:
     # Mostrar mensaje de error si la URL no pertenece a la lista de dominios permitidos
     # Show error message if the URL does not belong to the list of allowed domains
