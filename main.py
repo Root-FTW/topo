@@ -54,10 +54,9 @@ if url and any(domain in url for domain in allowed_domains):
         # Combine the title of the news item with the content of the news item.
         texto_completo = titulo_noticia + "\n\n" + contenido_noticia
 
-        # Mostrar el título de la noticia y el contenido extraído
-        # Show the title of the news item and the extracted content.
+        # Mostrar el título de la noticia
+        # Show the title of the news item
         st.header(titulo_noticia)
-        st.write(contenido_noticia)
 
         # Convertir el contenido completo a habla y guardar el archivo de sonido en un objeto de flujo de bytes
         # Convert the entire content to speech and save the sound file as a byte stream object
@@ -68,6 +67,11 @@ if url and any(domain in url for domain in allowed_domains):
         # Reproducir el archivo de sonido en la aplicación web
         # Playing the sound file in the web application
         st.audio(sound_file.getvalue(), format='audio/mp3')
+
+        # Mostrar el contenido extraído
+        # Show the extracted content.
+        st.write(contenido_noticia)
+       
 elif url:
     # Mostrar mensaje de error si la URL no pertenece a la lista de dominios permitidos
     # Show error message if the URL does not belong to the list of allowed domains
