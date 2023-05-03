@@ -1,4 +1,4 @@
-requests==2.26.0
-beautifulsoup4==4.10.0
-elevenlabs==0.8.7
-streamlit==1.2.0
+requests
+beautifulsoup4
+elevenlabs
+streamlit
