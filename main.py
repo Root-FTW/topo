@@ -12,6 +12,9 @@ def should_delete_paragraph(paragraph):
         "Aquí lo puedes ver",
         "Editorial:",
         "Por si te lo perdiste:",
+        "VIDEO RELACIONADO:",
+        "Ubicación:",
+        "VIDEO:",
         "Video relacionado:"
     ]
 
