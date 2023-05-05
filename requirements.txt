@@ -1,4 +1,6 @@
-requests
-beautifulsoup4
-elevenlabs
 streamlit
+feedparser
+beautifulsoup4
+lxml
+requests
+elevenlabs
